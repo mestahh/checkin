@@ -1,9 +1,14 @@
 class SessionsController < ApplicationController
+	
 	def new
 	
 	end
 	
 	def create
-	  redirect_to main_index_path
+	  if user = User.authenticate(params[:username], params[:password])
+        redirect_to main_index_path
+      else
+        redirect_to login_path
+	  end
 	end
 end
