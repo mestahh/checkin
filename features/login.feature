@@ -14,3 +14,4 @@ Feature: Login
     Given "Bob" is an existing user with password "pass"
 	When he logs in on the login page as "NotBob" with password "pass"
 	Then he should see the "login" page
+	

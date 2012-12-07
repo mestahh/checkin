@@ -2,6 +2,13 @@ Given /^there is no user with the name "(.*?)"$/ do |username|
   User.find_by_username(username).should == nil
 end
 
+Given /^there is a user with the name "(.*?)"$/ do |username|
+  existing_user = User.new
+  existing_user.username = username
+  existing_user.save
+  User.find_by_username(username).should_not == nil
+end
+
 When /^I open in the registration page$/ do
   visit(register_path)
 end
@@ -14,10 +21,12 @@ When /^submits the form$/ do
   click_button "Register"
 end
 
-Then /^there should be one user in the database\.$/ do
-  User.count.should == 1
+Then /^there should be "(.*?)" user in the database\.$/ do |number_of_users|
+  User.count.should == number_of_users.to_i
 end
 
-Then /^I should see a success page$/ do
-  current_path.should == "/success/index"
+Then /^I should see the "(.*?)" page$/ do |page_path|
+  current_path.should == "/" + page_path
 end
+
+

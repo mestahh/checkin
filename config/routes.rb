@@ -7,6 +7,7 @@ Checkin::Application.routes.draw do
   
   get "main/index"
   get "success/index"
+  get "error/index"
   
   controller :sessions do
     get 'login' => :new
