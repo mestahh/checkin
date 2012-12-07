@@ -15,3 +15,9 @@ Feature: Login
 	When he logs in on the login page as "NotBob" with password "pass"
 	Then he should see the "login" page
 	
+  Scenario: The logged in user opens the login page
+    Given "Bob" is an existing user with password "pass"
+    Given "Bob" is logged in with password "pass"
+	When he visits the login page
+	Then he should see the "main/index" page
+	
