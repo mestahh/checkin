@@ -1,27 +1,27 @@
-Given /^"(.*?)" is an existing user with password "(.*?)"$/ do |name, password|
+Given /^I have an existing user$/ do
   @user = FactoryGirl.create(:user)
 end
 
-Given /^"(.*?)" is logged in with password "(.*?)"$/ do |name, password|
-  login(name, password)
+When /^I log in with correct credentials$/ do
+  login("Bob", "pass")
 end
 
-When /^he visits the login page$/ do
+When /^I log in with an incorrect password$/ do
+  login("Bob", "wrongpass")
+end
+
+When /^I log in with an incorrect username$/ do
+  login("NotBob", "pass")
+end
+
+When /^I visit the login page$/ do
   visit(login_path)
 end
 
-When /^he logs in on the login page as "(.*?)" with password "(.*?)"$/ do |username, password|
-  login(username, password)
-end
 
-Then /^he should see the "(.*?)" page$/ do |page|
-  current_path.should == "/" + page
-end
 
-def login(username, password)
-  visit(login_path)
-  fill_in "username", :with => username
-  fill_in "password", :with => password
-  click_button "Log in"
-end
+
+
+
+
 

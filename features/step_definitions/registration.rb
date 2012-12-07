@@ -13,20 +13,18 @@ When /^I open in the registration page$/ do
   visit(register_path)
 end
 
-When /^enter the "(.*?)" "(.*?)"$/ do |field_name, value|
-  fill_in field_name, :with => value
+When /^fill in the registration form$/ do
+  fill_in "username", :with => "Bob"
+  fill_in "password", :with => "pass"
 end
 
 When /^submits the form$/ do
   click_button "Register"
 end
 
-Then /^there should be "(.*?)" user in the database\.$/ do |number_of_users|
-  User.count.should == number_of_users.to_i
+Then /^there should be one user in the database\.$/ do
+  User.count.should == 1
 end
 
-Then /^I should see the "(.*?)" page$/ do |page_path|
-  current_path.should == "/" + page_path
-end
 
 
