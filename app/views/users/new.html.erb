@@ -1,0 +1,16 @@
+<%= form_tag do %>
+  <fieldset>
+    <h1>Registration</h1>
+    <div>
+      <label for="username" >Name:</label>
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+	<div>
+      <label for="password" >Password:</label>
+      <%= password_field_tag :password, params[:password] %>
+    </div>
+    <div>
+      <%= submit_tag "Register" %>
+    </div>
+  </fieldset>
+<% end %>

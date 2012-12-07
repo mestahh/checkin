@@ -1,8 +1,12 @@
 Checkin::Application.routes.draw do
 
-  resources :users
+  controller :users do
+	get 'register' => :new
+	post 'register' => :create
+  end
   
   get "main/index"
+  get "success/index"
   
   controller :sessions do
     get 'login' => :new
