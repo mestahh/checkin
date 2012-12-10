@@ -1,8 +1,10 @@
 Checkin::Application.routes.draw do
-
+ 
   controller :users do
 	get 'register' => :new
 	post 'register' => :create
+	get 'edit_user' => :edit
+	post 'edit_user' => :update
   end
   
   get "main/index"
@@ -12,7 +14,7 @@ Checkin::Application.routes.draw do
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
-    #delete 'logout' => :destroy
+    delete 'logout' => :destroy
   end
 
   # The priority is based upon order of creation:

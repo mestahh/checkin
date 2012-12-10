@@ -18,6 +18,10 @@ When /^I visit the login page$/ do
   visit(login_path)
 end
 
+When /^I hit log out$/ do
+  click_link "Log out"
+end
+
 
 
 

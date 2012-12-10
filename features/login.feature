@@ -21,3 +21,10 @@ Feature: Login
 	When I visit the login page
 	Then I should see the "main/index" page
 	
+  Scenario: Log out
+    Given I have an existing user
+	And I am logged in
+	When I hit log out
+    And I visit the login page
+	Then I should see the "login" page
+	
