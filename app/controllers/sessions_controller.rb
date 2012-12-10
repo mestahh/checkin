@@ -11,12 +11,22 @@ class SessionsController < ApplicationController
 	    session[:user] = user
 	    redirect_to main_index_path
 	  else
-	    redirect_to login_path, :alert => "The password was incorrect."
+	    if user = User.find_by_username(params[:username])
+		  redirect_to_login "The password was incorrect."
+		else
+		  redirect_to_login "The username does not exist."
+		end
 	  end
 	end
 	
 	def destroy
 	  session[:user] = nil
-	  redirect_to login_path, :alert => "Successful log out." 
+	  redirect_to_login "Successful log out." 
+	end
+	
+	private
+	
+	def redirect_to_login(message)
+	  redirect_to login_path, :alert => message
 	end
 end

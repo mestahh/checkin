@@ -30,7 +30,7 @@ Then /^I should see password error message$/ do
   page.should have_content("The password was incorrect.")
 end
 
-Then /^I should see username error message$/ do
+Then /^I should see the username error message$/ do
   page.should have_content("The username does not exist.")
 end
 

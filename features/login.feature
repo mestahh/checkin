@@ -15,6 +15,7 @@ Feature: Login
     Given I have an existing user
 	When I log in with an incorrect username
 	Then I should see the "login" page
+	And I should see the username error message
 	
   Scenario: The logged in user opens the login page
     Given I have an existing user
