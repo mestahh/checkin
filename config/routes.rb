@@ -1,5 +1,7 @@
 Checkin::Application.routes.draw do
  
+  resource :search, :only => :show, :controller => :search
+ 
   controller :users do
 	get 'register' => :new
 	post 'register' => :create

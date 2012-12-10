@@ -1,0 +1,11 @@
+<form id="search" method="get" action="/search">
+  <fieldset>
+    <input type="text" id="query" name="query" />
+    <input type="submit" value="Search" />
+  </fieldset>
+  <ol class="results">
+<% @providers.each do |provider| %>
+     <li><%= provider.provider_name %></li>
+<% end %>
+  </ol>
+</form>
