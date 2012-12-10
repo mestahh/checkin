@@ -22,6 +22,23 @@ When /^I hit log out$/ do
   click_link "Log out"
 end
 
+When /^I log in with empty fields$/ do
+  login("", "")
+end
+
+Then /^I should see password error message$/ do
+  page.should have_content("The password was incorrect.")
+end
+
+Then /^I should see username error message$/ do
+  page.should have_content("The username does not exist.")
+end
+
+Then /^I should see successful logout message$/ do
+  page.should have_content("Successful log out.")
+end
+
+
 
 
 

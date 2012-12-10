@@ -9,6 +9,7 @@ Feature: Login
     Given I have an existing user
 	When I log in with an incorrect password
 	Then I should see the "login" page
+	And I should see password error message
 	
   Scenario: The user tries to log in with a non-existing username
     Given I have an existing user
@@ -25,6 +26,11 @@ Feature: Login
     Given I have an existing user
 	And I am logged in
 	When I hit log out
-    And I visit the login page
+	Then I should see the "login" page
+	And I should see successful logout message
+	
+  Scenario: Log in with empty fields
+    Given I visit the login page
+	When I log in with empty fields
 	Then I should see the "login" page
 	

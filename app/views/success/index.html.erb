@@ -1,1 +1,3 @@
-successful operation.
+<% if flash[:alert] %>
+  <p id="notice" ><%= flash[:alert] %></p>
+<% end %> 

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     if user = User.find_by_username(name)
       if user.password == password
         user
-      end
-    end
-  end 
+	  end
+	end
+  end
 end

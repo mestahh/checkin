@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
 	
 	def create
 	  if user = User.authenticate(params[:username], params[:password])
-        redirect_to main_index_path
-		session[:user] = user
-      else
-        redirect_to login_path
+	    session[:user] = user
+	    redirect_to main_index_path
+	  else
+	    redirect_to login_path, :alert => "The password was incorrect."
 	  end
 	end
 	
 	def destroy
 	  session[:user] = nil
-	  redirect_to login_path
+	  redirect_to login_path, :alert => "Successful log out." 
 	end
 end
