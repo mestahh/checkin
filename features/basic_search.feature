@@ -7,15 +7,15 @@ Feature: Basic search with a search page for a provider
 	  | Saloon        |
 	  | Sandra's shop |
 	  | Beautician    |
-	When I search for "Sa"
+	When I search for Sa
 	Then the result should be 
 	  | provider_name |
 	  | Saloon        |
 	  | Sandra's shop |
 	  
-  Scenario: Click on a search result should display the provider
-    Given I have a provider called "Test"
-	When I search for "Test"
-	When I click on the results name
+  Scenario: Click on a providers name in the result list should display the provider
+    Given I have a provider
+	When I search for its name
+	And I click on the results name
 	Then the provider should be displayed
 	  

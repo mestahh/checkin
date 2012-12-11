@@ -5,9 +5,16 @@ Given /^there are the following providers$/ do |providers|
    Provider.create!(providers_attributes)
 end
 
-When /^I search for "(.*?)"$/ do |search_string|
+Given /^I have a provider$/ do 
+  @provider = Provider.new
+  @provider.provider_name = 'Test'
+  @provider.provider_type = 'type'
+  @provider.save
+end
+
+When /^I search for Sa$/ do 
   visit '/search'
-  fill_in 'query', :with => search_string
+  fill_in 'query', :with => 'Sa'
   click_button 'Search'
 end
 
@@ -18,11 +25,10 @@ Then /^the result should be$/ do |expected_results|
   expected_results.diff!(results)
 end
 
-Given /^I have a provider called "(.*?)"$/ do |provider_name|
-  @provider = Provider.new
-  @provider.provider_name = provider_name
-  @provider.provider_type = 'type'
-  @provider.save
+When /^I search for its name$/ do
+  visit '/search'
+  fill_in 'query', :with => @provider.provider_name
+  click_button 'Search'
 end
 
 When /^I click on the results name$/ do
