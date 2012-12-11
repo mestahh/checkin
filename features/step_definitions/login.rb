@@ -46,6 +46,10 @@ When /^I visit the page$/ do
   visit "/"
 end
 
+Then /^I should see the login page$/ do
+  page.should have_content("Please Log in")
+end
+
 
 
 

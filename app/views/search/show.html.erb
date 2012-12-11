@@ -5,7 +5,7 @@
   </fieldset>
   <ol class="results">
 <% @providers.each do |provider| %>
-     <li><%= provider.provider_name %></li>
+     <li><%= link_to provider.provider_name, provider_path(provider) %></li>
 <% end %>
   </ol>
 </form>

@@ -40,3 +40,8 @@ Feature: Login
 	And I am logged in
 	When I visit the page
 	Then I should see the "main/index" page
+	
+  Scenario: The main page should be displayed first
+    Given I am not logged in
+	When I visit the page
+	Then I should see the login page

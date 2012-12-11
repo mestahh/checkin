@@ -1,7 +1,9 @@
 Checkin::Application.routes.draw do
  
   resource :search, :only => :show, :controller => :search
- 
+  
+  resources :providers
+  
   controller :users do
 	get 'register' => :new
 	post 'register' => :create
@@ -12,7 +14,7 @@ Checkin::Application.routes.draw do
   get "main/index"
   get "success/index"
   get "error/index"
-  
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
