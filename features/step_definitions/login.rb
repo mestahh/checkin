@@ -38,6 +38,14 @@ Then /^I should see successful logout message$/ do
   page.should have_content("Successful log out.")
 end
 
+Given /^I am not logged in$/ do
+  #do nothing
+end
+
+When /^I visit the page$/ do
+  visit "/"
+end
+
 
 
 

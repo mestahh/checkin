@@ -35,3 +35,8 @@ Feature: Login
 	When I log in with empty fields
 	Then I should see the "login" page
 	
+  Scenario: The main page should be displayed first
+    Given I have an existing user 
+	And I am logged in
+	When I visit the page
+	Then I should see the "main/index" page
