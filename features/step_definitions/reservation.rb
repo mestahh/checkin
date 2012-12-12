@@ -5,8 +5,7 @@ When /^I open a page of a certain shop$/ do
 end
 
 When /^I select a service and a timebox for that reservation$/ do
-  
-  pending # express the regexp above with the code you wish you had
+  select 'ServiceName', {:from => 'ServiceSelector'}
 end
 
 Then /^a reserval is made in the database$/ do
