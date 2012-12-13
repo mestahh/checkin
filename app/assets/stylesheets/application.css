@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+
+ 
+ #wrapper {
+   margin-top: 20px;
+   background-image: url('fabric_plaid.png');
+   padding: 10px;
+   border: 1px solid #cccccc;
+   height: 400px;
+ }
+ 
+ #main {
+   border-top: 1px solid #cccccc;
+   margin-top: 20px;
+   padding: 10px;
+ }
+ 
+ #notice {
+   color: red;
+ }
