@@ -1,0 +1,15 @@
+<%= form_tag do %>
+  <fieldset>
+    <h1>Create a reservation:</h1>
+    <div>
+      <label for="start_time" >Name:</label>
+      <%= select_date Date.today, :prefix => :start_date %>
+    </div>
+	<div>
+      <%= hidden_field_tag :service_id, params[:service_id], :value => @service.id %>
+    </div>
+    <div>
+      <%= submit_tag "Reserve" %>
+    </div>
+  </fieldset>
+<% end %>

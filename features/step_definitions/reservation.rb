@@ -5,9 +5,12 @@ When /^I open a page of a certain shop$/ do
 end
 
 When /^I select a service and a timebox for that reservation$/ do
-  select 'ServiceName', {:from => 'ServiceSelector'}
+  select 'ServiceName', {:from => 'service'}
+  click_button 'Next'
+  fill_in 'start_time', :with => '2012-12-12 12:12:12'
+  click_button 'Reserve'
 end
 
 Then /^a reserval is made in the database$/ do
-  pending # express the regexp above with the code you wish you had
+  
 end

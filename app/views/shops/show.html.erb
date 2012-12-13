@@ -1,6 +1,15 @@
-Services:
-<select name="ServiceSelector">
-   <% @services.each do |service| %> 
-    <option value=<%= service.id %>><%= service.name %></option>
-  <% end %> 
-</select>
+<%= form_tag(new_reservation_path, :method => 'get') do %>
+  <fieldset>
+    <h1>Services:</h1>
+    <div>
+      <select name="service">
+        <% @services.each do |service| %> 
+          <option value=<%= service.id %>><%= service.name %></option>
+        <% end %> 
+      </select>
+    </div>
+    <div>
+      <%= submit_tag "Next" %>
+    </div>
+  </fieldset>
+<% end %>

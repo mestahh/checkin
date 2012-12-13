@@ -6,6 +6,8 @@ Checkin::Application.routes.draw do
   
   resources :shops
   
+  resources :reservations
+  
   controller :users do
 	get 'register' => :new
 	post 'register' => :create
