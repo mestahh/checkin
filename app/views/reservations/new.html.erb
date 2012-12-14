@@ -3,7 +3,7 @@
     <h1>Create a reservation:</h1>
     <div>
       <label for="start_time" >Name:</label>
-      <%= select_date Date.today, :prefix => :start_date %>
+      <%= text_field_tag :start_time, params[:start_time] %>
     </div>
 	<div>
       <%= hidden_field_tag :service_id, params[:service_id], :value => @service.id %>

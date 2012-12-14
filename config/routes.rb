@@ -4,7 +4,11 @@ Checkin::Application.routes.draw do
   
   resources :shops
   
-  resources :reservations
+  controller :reservations do
+    get 'reservations' => :index
+    get 'reserve' => :new
+	post 'reserve' => :create
+  end
   
   controller :users do
 	get 'register' => :new

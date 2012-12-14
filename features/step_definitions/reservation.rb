@@ -14,3 +14,7 @@ end
 Then /^a reserval is made in the database$/ do
   pending
 end
+
+Then /^I should see my reservals$/ do
+  current_path.should == reservations_path
+end
