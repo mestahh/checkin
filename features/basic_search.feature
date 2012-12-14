@@ -1,21 +1,21 @@
-Feature: Basic search with a search page for a provider
+Feature: Basic search with a search page for a shop
 
-  Scenario: Find a service provider by its name
-    Given there are the following providers
-	  | provider_name |
+  Scenario: Find a shop by its name
+    Given there are the following shops
+	  | name |
 	  | Barber        |
 	  | Saloon        |
 	  | Sandra's shop |
 	  | Beautician    |
 	When I search for Sa
 	Then the result should be 
-	  | provider_name |
+	  | name |
 	  | Saloon        |
 	  | Sandra's shop |
 	  
-  Scenario: Click on a providers name in the result list should display the provider
-    Given I have a provider
+  Scenario: Click on a shops name in the result list should display the shop
+    Given I have a shop
 	When I search for its name
 	And I click on the results name
-	Then the provider should be displayed
+	Then the shop should be displayed
 	  

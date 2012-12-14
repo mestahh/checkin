@@ -12,5 +12,5 @@ When /^I select a service and a timebox for that reservation$/ do
 end
 
 Then /^a reserval is made in the database$/ do
-  
+  pending
 end

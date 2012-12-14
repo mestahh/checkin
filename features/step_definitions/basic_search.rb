@@ -1,16 +1,18 @@
-Given /^there are the following providers$/ do |providers|
-   providers_attributes = providers.hashes.map do |provider_attrs|
-     provider_attrs.merge({:provider_type => "Shop"})
+Given /^there are the following shops$/ do |shops|
+   shops_attributes = shops.hashes.map do |shop_attrs|
+     shop_attrs.merge({:description => "Shop description", :timeplan_id => 1, :user_id => 1})
    end
-   Provider.create!(providers_attributes)
+   Shop.create!(shops_attributes)
 end
 
-Given /^I have a provider$/ do 
-  @provider = Provider.new
-  @provider.provider_name = 'Test'
-  @provider.provider_type = 'type'
-  @provider.save
-end
+Given /^I have a shop$/ do
+  @shop = Shop.new
+  @shop.name = 'Test'
+  @shop.description = 'description of the shop'
+  @shop.timeplan_id = 1
+  @shop.user_id = 1
+  @shop.save
+ end
 
 When /^I search for Sa$/ do 
   visit '/search'
@@ -19,7 +21,7 @@ When /^I search for Sa$/ do
 end
 
 Then /^the result should be$/ do |expected_results|
-  results = [['provider_name']] + page.all('ol.results li').map do |li|
+  results = [['name']] + page.all('ol.results li').map do |li|
     [li.text]
   end 
   expected_results.diff!(results)
@@ -27,14 +29,14 @@ end
 
 When /^I search for its name$/ do
   visit '/search'
-  fill_in 'query', :with => @provider.provider_name
+  fill_in 'query', :with => @shop.name
   click_button 'Search'
 end
 
 When /^I click on the results name$/ do
-  click_link @provider.provider_name 
+  click_link @shop.name 
 end
 
-Then /^the provider should be displayed$/ do
-  current_path.should == "/providers/" + @provider.id.to_s
+Then /^the shop should be displayed$/ do
+  current_path.should == "/shops/" + @shop.id.to_s
 end

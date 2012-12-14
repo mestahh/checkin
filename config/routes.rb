@@ -2,8 +2,6 @@ Checkin::Application.routes.draw do
  
   resource :search, :only => :show, :controller => :search
   
-  resources :providers
-  
   resources :shops
   
   resources :reservations
