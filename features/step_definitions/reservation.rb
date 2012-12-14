@@ -12,7 +12,11 @@ When /^I select a service and a timebox for that reservation$/ do
 end
 
 Then /^a reserval is made in the database$/ do
-  pending
+  @res = Reservation.find(1)
+  @res.should_not == nil
+  @res.user_id.should == 1
+  @res.service_id.should == 1
+  @res.start_time.should == '2012-12-12 12:12:12'
 end
 
 Then /^I should see my reservals$/ do

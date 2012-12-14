@@ -9,6 +9,11 @@ class ReservationsController < ApplicationController
   end
   
   def create
+    @reservation = Reservation.new
+	@reservation.start_time = params[:start_time]
+	@reservation.user_id = session[:user].id
+	@reservation.service_id = params[:service_id]
+	@reservation.save
     redirect_to reservations_path
   end
   
