@@ -26,5 +26,9 @@ Then /^there should be one user in the database\.$/ do
   User.count.should == 1
 end
 
+When /^click on the register link$/ do
+  click_link "Register"
+end
+
 
 

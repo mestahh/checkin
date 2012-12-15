@@ -15,4 +15,10 @@ Feature: Register a user
 	And submits the form
 	Then there should be one user in the database.
 	And I should see the "error/index" page
+	
+  Scenario: registration should be possible from the main page
+    Given I am not logged in
+	When I visit the page
+	And click on the register link
+	Then I should see the "register" page
 

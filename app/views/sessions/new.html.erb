@@ -14,7 +14,9 @@
     </div>
   </fieldset>
 <% end %>
-
+<div>
+  <%= link_to 'Register', register_path %>
+</div>
 <% if flash[:alert] %>
   <p id="notice" ><%= flash[:alert] %></p>
 <% end %> 
