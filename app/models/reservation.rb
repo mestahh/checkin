@@ -4,4 +4,5 @@ class Reservation < ActiveRecord::Base
   def to_s 
     'id: ' + service_id.to_s + ', start time: ' + start_time.to_s + ' user id: ' + user_id.to_s
   end 
+  
 end

@@ -12,10 +12,10 @@ class SessionsController < ApplicationController
 	    redirect_to main_index_path
 	  else
 	    if user = User.find_by_username(params[:username])
-		  redirect_to_login "The password was incorrect."
-		else
-		  redirect_to_login "The username does not exist."
-		end
+		    redirect_to_login "The password was incorrect."
+		  else
+		    redirect_to_login "The username does not exist."
+		  end
 	  end
 	end
 	
