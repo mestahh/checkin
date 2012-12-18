@@ -7,6 +7,11 @@ Given /^there is a reservation for another service$/ do
   @reservation = FactoryGirl.create(:reservation, start_time: '2012-12-12 12:00:00', service_id: @different_service.id)
 end
 
+Given /^another user has a different reservation$/ do
+  @anotherUser = FactoryGirl.create(:user, username: 'another');
+  @diffRes = FactoryGirl.create(:reservation, user_id: @anotherUser.id)
+end
+
 Given /^there is a reservation for the service$/ do
   @reservation = FactoryGirl.create(:reservation, start_time: '2012-12-12 12:00:00')
 end
@@ -65,6 +70,18 @@ end
 
 Then /^an error message should be shown$/ do
   page.should have_content 'The reservation overlaps with another one. Please choose anoter start time.';
+end
+
+When /^I open the reservations page$/ do
+ visit reservations_path
+end
+
+Then /^I would like to see my reservation$/ do
+  page.should have_content @reservation.to_s
+end
+
+Then /^dont want to see other users reservation$/ do
+  page.should_not have_content @diffRes.to_s
 end
 
 private 

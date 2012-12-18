@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   
   def index
-    @reservations = Reservation.find(:all)
+    @reservations = Reservation.find_all_by_user_id session[:user]
   end
   
   def new
