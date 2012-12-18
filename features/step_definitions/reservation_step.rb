@@ -24,6 +24,14 @@ When /^I select the service and enter an overlapping start time for a reservatio
   select_service_and_enter_time '2012-12-12 12:12:12'
 end
 
+When /^when I click on the reservations link$/ do
+  click_link 'Reservations'
+end
+
+Then /^I would like to see the reservations page$/ do
+  current_path.should == reservations_path
+end
+
 Then /^a reserval is created in the database$/ do
   @res = Reservation.find(:all)[0];
   @res.should_not == nil

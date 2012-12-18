@@ -31,4 +31,9 @@ Background: I have a user and I am logged in
     And I select the service and enter an overlapping start time for a reservation
     Then a reserval should not be saved
     And an error message should be shown
+
+  Scenario: I would like to list the reservations for a shop
+    When I open the page of that shop
+    And when I click on the reservations link
+    Then I would like to see the reservations page
 	
