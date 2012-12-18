@@ -7,14 +7,14 @@ Background: I have a user and I am logged in
 
     Given I have an existing user
     And I am logged in
-    And I have a shop with a service
+    And there is a shop with a service
 
   Scenario: Successful service reserval
 
     When I open the page of that shop
     And I select a service and enter a start time for a reservation
     Then a reserval is created in the database
-    And I should see my reservals
+    And I would like to see the reservations page
 	
   Scenario: Unsuccessful reservation, time overlaps for the same service
 
@@ -36,4 +36,11 @@ Background: I have a user and I am logged in
     When I open the page of that shop
     And when I click on the reservations link
     Then I would like to see the reservations page
+ 
+  Scenario: I would like to be able to delete my reservation
+    And I have a reservation for a service in that shop
+    When I open the page of the reservations of that shop
+    And deletes my reservation
+    Then I would like to see an updated list 
+
 	

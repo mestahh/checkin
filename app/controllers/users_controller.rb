@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user.username = params[:username]
       @user.password = params[:password]
       @user.save
-        redirect_to success_index_path
+      redirect_to success_index_path
     end
   end
   

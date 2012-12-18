@@ -25,9 +25,15 @@ class ReservationsController < ApplicationController
       @reservation.service_id = service.id
       @reservation.shop_id = params[:shop_id]
       @reservation.save
-      redirect_to reservations_path 
+      redirect_to reservations_path(:shop_id => params[:shop_id]) 
     end
     
+  end
+  
+  def destroy
+    reservation = Reservation.find(params[:reservation_id])
+    reservation.delete
+    redirect_to reservations_path(:shop_id => params[:shop_id])
   end
   
   private

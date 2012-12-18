@@ -16,4 +16,4 @@
     </div>
   </fieldset>
 <% end %>
-<%= link_to 'Reservations', reservations_path %>
+<%= link_to 'Reservations', reservations_path(:id => @shop.id) %>

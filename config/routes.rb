@@ -12,6 +12,7 @@ Checkin::Application.routes.draw do
     get 'reservations' => :index
     get 'reserve' => :new
 	  post 'reserve' => :create
+    delete 'reservation' => :destroy
   end
   
   controller :users do
