@@ -9,6 +9,9 @@
       </select>
     </div>
     <div>
+      <%= hidden_field_tag :shop_id, params[:shop_id], :value => @shop.id %>
+    </div>
+    <div>
       <%= submit_tag "Next" %>
     </div>
   </fieldset>

@@ -5,12 +5,13 @@ class ReservationsController < ApplicationController
   end
   
   def new 
+    @shop = Shop.find(params[:shop_id])
     @service = Service.find(params[:service])
   end
   
   def create
     
-    if overlaps_with? params[:start_time], params[:service_id]
+    if overlaps_with? params[:start_time], params[:shop_id]
       redirect_to error_index_path, :alert => 'The reservation overlaps with another one. Please choose anoter start time.'
     else
       service = Service.find(params[:service_id])
@@ -19,6 +20,7 @@ class ReservationsController < ApplicationController
       @reservation.start_time = params[:start_time]
       @reservation.user_id = session[:user].id
       @reservation.service_id = service.id
+      @reservation.shop_id = params[:shop_id]
       @reservation.save
       redirect_to reservations_path 
     end
@@ -27,17 +29,17 @@ class ReservationsController < ApplicationController
   
   private
   
-  def overlaps_with?(start_time, service_id)
+  def overlaps_with?(start_time, shop_id)
 
-    reservations = Reservation.find_all_by_service_id service_id
-    service = Service.find service_id
+    reservations = Reservation.find_all_by_shop_id shop_id
   
     if reservations.length == 0
       return false
     end
     
     reservations.each do |res| 
-      if (res.start_time < start_time && (res.start_time + + service.length.minutes > start_time))
+      
+      if (res.start_time < start_time && (res.start_time + + res.service.length.minutes > start_time))
           return true
       end      
     end
