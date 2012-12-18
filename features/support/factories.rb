@@ -1,16 +1,16 @@
 require 'factory_girl'
 
 FactoryGirl.define do
-  factory :user do |f|
-    f.username 'Bob'
-	  f.password 'pass'
+  factory :user do |user|
+    user.username 'Bob'
+	  user.password 'pass'
   end
   
-  factory :shop do |s|
-    s.name 'ShopName'
-	  s.user_id 1
-	  s.description 'Shop description'
-	  s.timeplan_id 1
+  factory :shop do |shop|
+    shop.name 'ShopName'
+	  shop.user_id 1
+	  shop.description 'Shop description'
+	  shop.timeplan_id 1
   end
   
   factory :service do |service|
@@ -18,5 +18,12 @@ FactoryGirl.define do
 	  service.shop_id 1
 	  service.description 'description'
 	  service.length 60
+  end
+  
+  factory :reservation do |reservation|
+    reservation.service_id 1
+	  reservation.shop_id 1
+	  reservation.user_id 1
+	  reservation.start_time '2012-12-12 12:12:12'
   end
 end
