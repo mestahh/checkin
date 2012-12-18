@@ -4,9 +4,12 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.find(:all)
   end
   
-  def new 
+  def new
     @shop = Shop.find(params[:shop_id])
     @service = Service.find(params[:service])
+    unless session[:user]
+      redirect_to service_path(@service.id)
+    end
   end
   
   def create

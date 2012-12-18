@@ -4,26 +4,26 @@ class UsersController < ApplicationController
   end
   
   def edit
-	@user = User.find(params[:id])
+	  @user = User.find(params[:id])
   end
   
   def create
-	if user = User.find_by_username(params[:username])
-	  redirect_to error_index_path
-	else
+    if user = User.find_by_username(params[:username])
+      redirect_to error_index_path
+    else
       @user = User.new
-	  @user.username = params[:username]
-	  @user.password = params[:password]
-	  @user.save
-      redirect_to success_index_path
-	end
+      @user.username = params[:username]
+      @user.password = params[:password]
+      @user.save
+        redirect_to success_index_path
+    end
   end
   
   def update
     @user = User.find(params[:user_id])
-	@user.username = params[:username]
-	@user.password = params[:password]
-	@user.save
+	  @user.username = params[:username]
+	  @user.password = params[:password]
+	  @user.save
     redirect_to success_index_path
   end
 	

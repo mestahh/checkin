@@ -4,17 +4,21 @@ Checkin::Application.routes.draw do
   
   resources :shops
   
+  controller :services do
+    get 'service' => :show   
+  end
+  
   controller :reservations do
     get 'reservations' => :index
     get 'reserve' => :new
-	post 'reserve' => :create
+	  post 'reserve' => :create
   end
   
   controller :users do
-	get 'register' => :new
-	post 'register' => :create
-	get 'edit_user' => :edit
-	post 'edit_user' => :update
+    get 'register' => :new
+    post 'register' => :create
+    get 'edit_user' => :edit
+    post 'edit_user' => :update
   end
   
   get "main/index"
