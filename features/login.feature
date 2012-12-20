@@ -18,14 +18,12 @@ Feature: Login
     And I should see the username error message
 	
   Scenario: The logged in user opens the login page
-    Given I have an existing user
-    And I am logged in
+    Given I am logged in
     When I visit the login page
     Then I should see the "main/index" page
 	
   Scenario: Log out
-    Given I have an existing user
-    And I am logged in
+    Given I am logged in
     When I hit log out
     Then I should see the "login" page
     And I should see successful logout message
@@ -36,8 +34,7 @@ Feature: Login
     Then I should see the "login" page
 	
   Scenario: The main page should be displayed first
-    Given I have an existing user 
-    And I am logged in
+    Given I am logged in
     When I visit the page
     Then I should see the "main/index" page
 	

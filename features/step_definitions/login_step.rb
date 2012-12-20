@@ -1,3 +1,8 @@
+Given /^I am logged in$/ do
+  @user = FactoryGirl.create(:user)
+  login("Bob", "pass")
+end
+
 Given /^I have an existing user$/ do
   @user = FactoryGirl.create(:user)
 end

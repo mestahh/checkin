@@ -20,6 +20,10 @@ When /^I open the page of that shop$/ do
   visit shop_path(@shop.id)
 end
 
+When /^I open the page of the reservations of that shop$/ do
+  visit reservations_path(:shop_id => @shop.id)
+end
+
 When /^there is a shop with a service$/ do
   @anotherUser = FactoryGirl.create(:user, username: 'another')
   @shop = FactoryGirl.create(:shop, user_id: @anotherUser.id)
@@ -34,17 +38,12 @@ When /^I select the service and enter an overlapping start time for a reservatio
   select_service_and_enter_time '2012-12-12 12:12:12'
 end
 
-When /^when I click on the reservations link$/ do
-  click_link 'Reservations'
-end
 
 When /^deletes my reservation$/ do
   click_link 'Delete'
 end
 
-When /^I open the page of the reservations of that shop$/ do
-  visit reservations_path(:shop_id => @shop.id)
-end
+
 
 Then /^I would like to see the reservations page$/ do
   current_path.should == reservations_path

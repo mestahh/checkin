@@ -5,8 +5,7 @@ Feature: A user can reserve a time-slot for a service
   I have a user and I am logged in and I have an existing shop in the database
   with one service.
 
-    Given I have an existing user
-    And I am logged in
+    Given I am logged in
     And there is a shop with a service
 
       Scenario: Successful service reserval
@@ -32,20 +31,14 @@ Feature: A user can reserve a time-slot for a service
         Then a reserval should not be saved
         And an error message should be shown
 
-      Scenario: I would like to list the reservations for a shop
-
-        When I open the page of that shop
-        And when I click on the reservations link
-        Then I would like to see the reservations page
-
-      Scenario: I would like to be able to delete my reservation
+      Scenario: Delete reservation
 
         Given I have a reservation for a service in that shop
         When I open the page of the reservations of that shop
         And deletes my reservation
         Then I would like to see an updated list
 
-      Scenario: I would like to list all my reservations
+      Scenario: List reservations
 
         Given I have a reservation for a service in that shop
         And another user has a different reservation
